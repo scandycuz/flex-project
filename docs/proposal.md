@@ -2,7 +2,7 @@
 ### Background
 
 Social media and other distracting websites can make it difficult to focus and work.
-This extension will allow users to set an amount of time that they would like to focus for, the the extension will block access to sites that have been added to the block list.
+This extension will allow users to set an amount of time that they would like to focus for, and the the extension will block access to sites that have been added to the block list.
 
 The extension will also provide links to resources that can be useful for focusing, such as websites that provide relaxing background music.
 
@@ -35,11 +35,11 @@ There will also be two HTML files and one CSS file to display the content:
 
 The primary technical challenges will be:
 
-- Identifying and blocking requests to and from blocked sites
+- Identifying and blocking requests to blocked sites
 - Creating the interactivity that allows users to add and remove sites and focus aid resources
 - Implementing the interactive element that allows people to end the focus session early
 
-Requests to the blocked sites will be made using HTTP requests. The plugin will be able to detect when outgoing http requests are being made to a site on the block list, and then block the site and alert the user that it has been blocked. The algorithm that conducts the blocking will also have to be written to ensure that it only blocks requests to the correct sites, and not, for example, a link to an article that happens to have the word 'Facebook' in the title.
+Requests to the blocked sites will be made using HTTP requests. The plugin will be able to detect when outgoing http requests are being made to a site on the block list, block the site, and then alert the user that it has been blocked. The algorithm that conducts the blocking will also have to be written to ensure that it only blocks requests to the correct sites, and not, for example, a link to an article that happens to have the word 'Facebook' in the title.
 
 ### Implementation Timeline
 
@@ -54,10 +54,10 @@ Requests to the blocked sites will be made using HTTP requests. The plugin will 
 - A well written algorithm that blocks requests correctly
 - A roughly styled interface to add and remove blocked sites
 
-**Day 3**: Add the ability to add and remove functioning focus aid resource links to a list, create the interactive sequence that allows users to end a session early.
+**Day 3**: Add the ability to add and remove focus aid resource links to a list, create the interactive sequence that allows users to end a session early.
 
 - A rougly styled interface to add and remove focus aid resources, and navigate to them
-- A rough interactive that allows users to type in a tedious string of text to end the session early
+- A rough interactive element that allows users to type in a tedious string of text to end the session early
 
 **Day 4**: Fully style the plugin UI elements so that it is simple and intuitive to use, and looks great:
 
