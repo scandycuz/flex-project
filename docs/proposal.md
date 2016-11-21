@@ -18,7 +18,7 @@ With this extension, users will be able to:
 
 ### Wireframes
 
-![wireframes](https://github.com/scandycuz/flex-project/docs/settings-wireframe.png)
+![wireframes](https://github.com/scandycuz/flex-project/docs/blocked-sites-wireframe.png)
 
 ### Technologies & Technical Challenges
 
