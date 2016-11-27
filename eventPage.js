@@ -3,11 +3,15 @@ let screenHeight = screen.availHeight;
 let width = 500;
 let height = 300;
 
-let blockedDomains = ["facebook.com"];
+let blockedDomains = ["facebook.com", "twitter.com"];
+let domainArray = blockedDomains.map ( (domain) => (
+  `*://*.${domain}/*`
+));
 
-function checkDomains(currentUrlString) {
-  blockedDomains.forEach((domain) => {
-    if (currentUrlString.indexOf(domain) !== -1) {
+function checkDomainsWithUrl(currentUrlString) {
+  for (let i = 0; i < blockedDomains.length; i++) {
+    if (currentUrlString.indexOf(blockedDomains[i]) !== -1) {
+      alert('hey');
       chrome.windows.create({
         url: "dialog.html",
         type: "popup",
@@ -17,17 +21,21 @@ function checkDomains(currentUrlString) {
         top: Math.round((screenHeight-height)/2)
       });
     }
-  })
+  }
 }
 
-chrome.webNavigation.onCommitted.addListener(function(e) {
+function checkDomains(eventUrl) {
   chrome.tabs.query({'active': true, 'lastFocusedWindow': true}, function (tabs) {
     let currentUrl = tabs[0].url;
     let currentUrlString = currentUrl.split(/\/\/|\//)[1];
 
-    checkDomains(currentUrlString);
+    return checkDomainsWithUrl(currentUrlString);
   });
+}
 
-}, {url: [
-  {hostSuffix: 'facebook.com'}
-]});
+chrome.webRequest.onBeforeRequest.addListener(function(e) {
+  checkDomains(e.url);
+  return {cancel: true};
+}, {
+  urls: domainArray
+}, ["blocking"]);
