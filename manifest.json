@@ -10,12 +10,9 @@
     "default_popup": "popup.html",
     "default_title": "Distraction Blocker"
   },
-  "permissions": [
-    "activeTab",
-    "https://ajax.googleapis.com/"
-  ],
+  "permissions": ["webRequest", "webRequestBlocking",
+                  "*://*/*", "webNavigation", "tabs", "history"],
   "background": {
-    "scripts": ["eventPage.js"],
-    "persistent": false
-  },
+    "scripts": ["eventPage.js"]
+  }
 }
