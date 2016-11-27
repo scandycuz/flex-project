@@ -11,10 +11,10 @@ let domainArray = blockedDomains.map ( (domain) => (
 function checkDomainsWithUrl(currentUrlString) {
   for (let i = 0; i < blockedDomains.length; i++) {
     if (currentUrlString.indexOf(blockedDomains[i]) !== -1) {
-      alert('hey');
       chrome.windows.create({
         url: "dialog.html",
-        type: "popup",
+        type: "panel",
+        focused: true,
         width: width,
         height: height,
         left: Math.round((screenWidth-width)/2),
