@@ -5,13 +5,16 @@
   "description": "This extension blocks request to specific hosts",
   "version": "1.0",
 
+  "options_page": "options.html",
+
   "browser_action": {
     "default_icon": "circle-icon.png",
     "default_popup": "popup.html",
     "default_title": "Distraction Blocker"
   },
   "permissions": ["webRequest", "webRequestBlocking",
-                  "*://*/*", "webNavigation", "tabs", "history"],
+                  "*://*/*", "webNavigation", "tabs", "history",
+                  "storage"],
   "background": {
     "scripts": ["eventPage.js"]
   }
