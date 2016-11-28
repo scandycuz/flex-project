@@ -42,7 +42,6 @@ function addBlockedSite(e) {
 }
 
 function restore_options() {
-  // Use default value color = 'red' and likesColor = true.
   chrome.storage.sync.get({
     blockedSites: ["facebook.com", "twitter.com"]
   }, function(items) {
