@@ -3,6 +3,30 @@ let screenHeight = screen.availHeight;
 let width = 500;
 let height = 300;
 
+let blockedDomains;
+let domainArray;
+
+function requestListener(e) {
+  checkDomains(e.url, blockedDomains);
+  return {cancel: true};
+}
+
+chrome.storage.onChanged.addListener(function() {
+  chrome.storage.sync.get({
+    blockedSites: ["facebook.com", "twitter.com"]
+    }, function(items) {
+      blockedDomains = items.blockedSites;
+      domainArray = blockedDomains.map ( (domain) => (
+        `*://*.${domain}/*`
+      ));
+
+    chrome.webRequest.onBeforeRequest.removeListener(requestListener);
+    chrome.webRequest.onBeforeRequest.addListener(requestListener, {
+      urls: domainArray
+    }, ["blocking"]);
+  });
+});
+
 function checkDomainsWithUrl(currentUrlString, blockedDomains) {
   for (let i = 0; i < blockedDomains.length; i++) {
     let domain = blockedDomains[i].replace(/\s/g, '');
@@ -32,16 +56,15 @@ function checkDomains(eventUrl, blockedDomains) {
 
 chrome.storage.sync.get({
   blockedSites: ["facebook.com", "twitter.com"]
-}, function(items) {
-  let blockedDomains = items.blockedSites;
-  let domainArray = blockedDomains.map ( (domain) => (
-    `*://*.${domain}/*`
-  ));
+  }, function(items) {
+    blockedDomains = items.blockedSites;
+    domainArray = blockedDomains.map ( (domain) => (
+      `*://*.${domain}/*`
+    )
+  );
 
-  chrome.webRequest.onBeforeRequest.addListener(function(e) {
-    checkDomains(e.url, blockedDomains);
-    return {cancel: true};
-  }, {
+  chrome.webRequest.onBeforeRequest.removeListener(requestListener);
+  chrome.webRequest.onBeforeRequest.addListener(requestListener, {
     urls: domainArray
   }, ["blocking"]);
 });
