@@ -35,16 +35,16 @@ function requestListener() {
       for (let i = 0; i < blockedDomains.length; i++) {
         let domain = blockedDomains[i].replace(/\s/g, '');
         if (currentUrlString.includes(domain)) {
-          chrome.windows.create({
-            url: "dialog.html",
-            type: "panel",
-            focused: true,
-            width: width,
-            height: height,
-            left: Math.round((screenWidth-width)/2),
-            top: Math.round((screenHeight-height)/2)
-          });
-          chrome.tabs.update(currentTabId, {url: "http://www.theguardian.com"});
+          // chrome.windows.create({
+          //   url: "dialog.html",
+          //   type: "panel",
+          //   focused: true,
+          //   width: width,
+          //   height: height,
+          //   left: Math.round((screenWidth-width)/2),
+          //   top: Math.round((screenHeight-height)/2)
+          // });
+          chrome.tabs.update(currentTabId, {url: "redirect.html"});
           return;
         }
       }
