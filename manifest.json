@@ -13,7 +13,7 @@
     "default_title": "Distraction Blocker"
   },
   "permissions": ["webRequest", "webRequestBlocking",
-                  "*://*/*", "webNavigation", "tabs", "history",
+                  "*://*/*", "webNavigation", "tabs", "activeTab", "history",
                   "storage"],
   "background": {
     "scripts": ["eventPage.js"]
