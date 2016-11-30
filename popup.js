@@ -49,22 +49,26 @@ function setupTimer() {
   inputContainer.removeChild(input);
   let timerSpan = document.createElement("SPAN");
   timerSpan.setAttribute("id", "countdown-clock");
-  timerSpan.innerHTML = "";
+  timerSpan.innerHTML = "&nbsp;";
   inputContainer.appendChild(timerSpan);
 
   startTimer(startTimeSeconds, timerSpan);
 }
 
+function clockDisplay(duration, display) {
+  minutes = parseInt(duration / 60, 10);
+  seconds = parseInt(duration % 60, 10);
+
+  minutes = minutes < 10 ? "0" + minutes : minutes;
+  seconds = seconds < 10 ? "0" + seconds : seconds;
+
+  display.textContent = minutes + ":" + seconds;
+}
+
 function startTimer(duration, display) {
+  clockDisplay(duration, display);
   let clockInterval = setInterval(function () {
-    minutes = parseInt(duration / 60, 10);
-    seconds = parseInt(duration % 60, 10);
-
-    minutes = minutes < 10 ? "0" + minutes : minutes;
-    seconds = seconds < 10 ? "0" + seconds : seconds;
-
-    display.textContent = minutes + ":" + seconds;
-
+    clockDisplay(duration - 1, display);
     duration--;
     if (duration <= 0) {
       inputContainer.innerHTML = '';
