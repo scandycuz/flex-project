@@ -44,7 +44,11 @@ function requestListener() {
           //   left: Math.round((screenWidth-width)/2),
           //   top: Math.round((screenHeight-height)/2)
           // });
-          chrome.tabs.update(currentTabId, {url: "redirect.html"});
+          chrome.storage.sync.set({
+            navigationUrl: currentUrl
+          }, function() {
+            chrome.tabs.update(currentTabId, {url: "redirect.html"});
+          });
           return;
         }
       }

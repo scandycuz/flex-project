@@ -10,39 +10,85 @@
         font-family: "Open Sans", "Segoe UI", "Lucida Grande", Tahoma, sans-serif;
         font-size: 100%;
         text-align: center;
+        padding-top: 10%;
+        background-image: url("./assets/landscape-nature-clouds-cloudy.jpg");
+        background-size: cover;
+        color: #333;
       }
       h2 {
         font-family: "Fira Sans", sans-serif;
         font-weight: 500;
+        font-size: 2em;
+        margin-top: 0;
       }
       p {
-        font-size: 18px;
+        font-size: 20px;
         line-height: 1.45em;
       }
       .container {
-        max-width: 580px;
+        max-width: 600px;
         margin: 0 auto;
-        padding: 4em 2em;
+        padding: 4em 4em 4em;
+        background: rgba(255,255,255,0.75);
+        border-radius: 3px;
+      }
+      .text-container {
+        max-width: 520px;
+        margin: 0 auto;
       }
       .buttons-container {
+        margin-top: 1.8em;
         display: flex;
         justify-content: center;
       }
+      .nowrap {
+        white-space: nowrap;
+      }
       button {
         margin: 0 1em;
+        background: none;
+        font-size: 22px;
+        padding: 18px 20px;
+        border: none;
+        border: 1px solid #333;
+        border-radius: 5px;
+        color: #222;
+        /*background-color: #fff;*/
+        cursor: pointer;
+      }
+      button:hover {
+        border-color: transparent;
+      }
+      .cancel:hover {
+        background-color: #058A35;
+        color: #fff;
+      }
+      .cancel:hover i {
+        color: #fff;
+      }
+      .confirm:hover {
+        background-color: #333;
+        color: #fff;
+      }
+      .cancel:hover i {
+        color: #fff;
       }
     </style>
     <script src="redirect.js"></script>
   </head>
   <body>
     <div class="container">
-      <h2 class="header">Confirm Navigation</h2>
-      <p>
-        Fam narwhal drinking vinegar freegan, taxidermy mlkshk bitters chia iPhone man bun actually everyday carry. Chambray godard tbh, vaporware fashion axe scenester banh mi put a bird on it plaid seitan blog readymade pok pok copper mug four loko.
-      </p>
+      <div class="text-container">
+        <h2 class="header">Site Blocked</h2>
+        <p>
+          Do you really want to end your session early and remove the distraction blocker?
+        </p>
+      </div>
       <div class="buttons-container">
-        <button type="button" name="cancel">Cancel</button>
-        <button type="button" name="confirm">Confirm</button>
+        <button id="cancel-alpha" class="cancel" type="button" name="cancel">Nope, just kidding.&nbsp;
+          <i class="fa fa-times" aria-hidden="true"></i></button>
+        <button id="confirm-alpha" class="confirm" type="button" name="confirm">Can't... <span class="nowrap">resist...&nbsp;
+          <i class="fa fa-arrow-right" aria-hidden="true"></i></span></button>
       </div>
     </div>
   </body>
