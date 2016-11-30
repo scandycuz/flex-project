@@ -14,7 +14,7 @@ function filterInt() {
     }, function(items) {
       let endingTimestampSeconds = items.timerEnd;
       let currentTimestampSeconds = Date.now() / 1000;
-      alert('interval');
+
       if (endingTimestampSeconds - currentTimestampSeconds > 0) {
         blockActive = true;
       } else {
