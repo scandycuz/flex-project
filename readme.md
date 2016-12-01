@@ -1,7 +1,7 @@
 # Focusly
 
-[Download from the Chrome Store][live-link]
-[live-link]: https://chrome.google.com/webstore/category/extensions
+[Download from the Chrome Store][store-link]
+[store-link]: https://chrome.google.com/webstore/search/focusly
 
 ## Summary
 
@@ -22,7 +22,13 @@ Focusly allows users to end the timer early and access distracting sites before 
 
 ## Screenshots
 
+Options page to add and remove blocked hosts, with the pop-up dropdown in upper right corner:
 
+![screenshot](assets/options-and-popup.jpg)
+
+Interactive element to end the timer early:
+
+![screenshot](assets/end-timer-early.jpg)
 
 ## Technology
 

@@ -2,7 +2,7 @@
   "manifest_version": 2,
 
   "name": "Focusly",
-  "description": "Allows users to block distracting sites for a period of time.",
+  "description": "Allows users to block distracting sites for a set period of time.",
   "version": "1.0",
   "icons": {
     "16": "assets/circle-16.png",
