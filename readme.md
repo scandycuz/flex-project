@@ -43,3 +43,4 @@ The user can choose to end the timer early, however, they must first enter a ser
 In the future, an improvements I would like to make to the extension are:
 
 - [ ] Add the ability for the user to create a list of resources that are conducive to focusing.
+- [ ] Add the ability for the user to partially block sites, which would allow access for a small period of time.
