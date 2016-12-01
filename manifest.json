@@ -1,14 +1,19 @@
 {
   "manifest_version": 2,
 
-  "name": "Distraction Blocker",
-  "description": "This extension blocks request to specific hosts",
+  "name": "Focusly",
+  "description": "This extension blocks request to specific hosts chosen by the user",
   "version": "1.0",
+  "icons": {
+    "16": "assets/circle-16.png",
+    "32": "assets/circle-32.png",
+    "64": "assets/circle-64.png",
+    "128": "assets/circle-128.png"
+  },
 
   "options_page": "options.html",
 
   "browser_action": {
-    "default_icon": "circle-icon.png",
     "default_popup": "popup.html",
     "default_title": "Distraction Blocker"
   },

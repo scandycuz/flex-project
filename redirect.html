@@ -10,9 +10,10 @@
         font-family: "Open Sans", "Segoe UI", "Lucida Grande", Tahoma, sans-serif;
         font-size: 100%;
         text-align: center;
-        padding-top: 10%;
+        padding-top: 12%;
         background-image: url("./assets/landscape-nature-clouds-cloudy.jpg");
         background-size: cover;
+        background-repeat: no-repeat;
         color: #333;
       }
       h2 {
@@ -73,22 +74,60 @@
       .cancel:hover i {
         color: #fff;
       }
+      .hidden {
+        display: none;
+      }
+      #arrow-sequence i {
+        margin: 0 4px;
+        color: #333;
+      }
+      /*#arrow-sequence i.typed {
+        color: #058A35;
+      }*/
+      .disabled {
+        color: #777;
+        border-color: #777;
+        cursor: default;
+        outline: 0 !important;
+      }
+      .disabled:hover {
+        background-color: transparent;
+        color: #777;
+        border-color: #777;
+      }
     </style>
     <script src="redirect.js"></script>
   </head>
   <body>
-    <div class="container">
-      <div class="text-container">
-        <h2 class="header">Site Blocked</h2>
-        <p>
-          Do you really want to end your session early and remove the distraction blocker?
-        </p>
+    <div class="container container-alpha">
+      <h2 class="header">Site Blocked</h2>
+      <div id="step-1" class="form-step">
+        <div class="text-container">
+          <p>
+            Do you really want to end your session early and remove the distraction blocker?
+          </p>
+        </div>
+        <div class="form-step buttons-container">
+          <button id="cancel-alpha" class="cancel" type="button" name="cancel">Nope, just <span class="nowrap">kidding.&nbsp;
+            <i class="fa fa-times" aria-hidden="true"></i></span></button>
+          <button id="confirm-alpha" class="confirm" type="button" name="confirm">Can't... <span class="nowrap">resist...&nbsp;
+            <i class="fa fa-arrow-right" aria-hidden="true"></i></span></button>
+        </div>
       </div>
-      <div class="buttons-container">
-        <button id="cancel-alpha" class="cancel" type="button" name="cancel">Nope, just kidding.&nbsp;
-          <i class="fa fa-times" aria-hidden="true"></i></button>
-        <button id="confirm-alpha" class="confirm" type="button" name="confirm">Can't... <span class="nowrap">resist...&nbsp;
-          <i class="fa fa-arrow-right" aria-hidden="true"></i></span></button>
+
+      <div id="step-2" class="form-step hidden">
+        <div class="text-container">
+          <p>
+            That's cool, just enter the following sequence:
+          </p>
+          <div id="arrow-sequence"></div>
+        </div>
+        <div class="buttons-container">
+          <button id="cancel-beta" class="cancel" type="button" name="cancel">Nevermind, I'm getting a second <span class="nowrap">wind.&nbsp;
+            <i class="fa fa-times" aria-hidden="true"></i></span></button>
+          <button id="confirm-beta" class="confirm disabled" type="button" name="confirm">Bring on the <span class="nowrap">distractions!&nbsp;
+            <i class="fa fa-arrow-right" aria-hidden="true"></i></span></button>
+        </div>
       </div>
     </div>
   </body>

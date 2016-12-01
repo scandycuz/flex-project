@@ -7,6 +7,20 @@ let blockedDomains;
 let domainArray;
 let blockActive = false;
 
+// set previous url link for blocked site cancelling redirect
+chrome.webNavigation.onDOMContentLoaded.addListener(function loadComplete(details) {
+  if (!details.url.match(/redirect/)) {
+    chrome.tabs.query({'active': true, 'lastFocusedWindow': true}, function (tabs) {
+      let currentUrl = tabs[0].url
+      chrome.storage.sync.set({
+        prevUrl: currentUrl
+      });
+    });
+  }
+}, {
+  url: [{urlContains: 'http'}]
+});
+
 function filterInt() {
   const _filterInt = setInterval(function() {
     chrome.storage.sync.get({
