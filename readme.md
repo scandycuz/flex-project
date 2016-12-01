@@ -18,7 +18,7 @@ Users can:
 - [x] Set a period of time to block sites for
 - [x] End the timer early by inputing a set of characters
 
-Focusly allows users to end the timer early and access distracting sites early, however, to discourage quitting early, users must first input a series of characters, which takes about 30 seconds to complete.
+Focusly allows users to end the timer early and access distracting sites before the set time ends, however, to discourage quitting early, users must first input a series of characters, which takes about 30 seconds to complete.
 
 ## Screenshots
 
