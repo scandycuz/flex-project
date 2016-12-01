@@ -9,7 +9,7 @@ Focusly is a Chrome Extension that allows users to limit their access to distrac
 
 Users can:
 
-<b>Create a list of hosts to block access to</b>
+<b>Create a list of hosts</b>
 - [x] Add hosts to the list
 - [x] Remove hosts from the list
 - [x] Save the list
@@ -18,7 +18,7 @@ Users can:
 - [x] Set a period of time to block sites for
 - [x] End the timer early by inputing a set of characters
 
-Focusly allows users to end the timer early and access distracting sites early if desired, however, to discourage quitting early, users must first input a series of characters, which takes about 30 seconds to complete.
+Focusly allows users to end the timer early and access distracting sites early, however, to discourage quitting early, users must first input a series of characters, which takes about 30 seconds to complete.
 
 ## Screenshots
 
@@ -34,6 +34,6 @@ If the user desires to end the timer early, they are able to do so, however, fir
 
 ### Future Implementation
 
-In the future, I would like to further improve the extension by:
+In the future, an improvements I would like to make to the extension are:
 
 - [ ] Add the ability for the user to create a list of resources that enable focusing.
