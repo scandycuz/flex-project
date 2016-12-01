@@ -1,7 +1,7 @@
 # Focusly
 
 [Download from the Chrome Store][store-link]
-[store-link]: https://chrome.google.com/webstore/search/focusly
+[store-link]: https://chrome.google.com/webstore/detail/focusly/jlihnplddpebplnfafhdanaiapbeikbk
 
 ## Summary
 
