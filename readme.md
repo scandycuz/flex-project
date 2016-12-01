@@ -36,4 +36,4 @@ If the user desires to end the timer early, they are able to do so, however, fir
 
 In the future, an improvements I would like to make to the extension are:
 
-- [ ] Add the ability for the user to create a list of resources that enable focusing.
+- [ ] Add the ability for the user to create a list of resources that are conducive to focusing.
