@@ -2,7 +2,7 @@
   "manifest_version": 2,
 
   "name": "Focusly",
-  "description": "This extension blocks request to specific hosts chosen by the user",
+  "description": "Allows users to block distracting sites for a period of time.",
   "version": "1.0",
   "icons": {
     "16": "assets/circle-16.png",
@@ -15,7 +15,7 @@
 
   "browser_action": {
     "default_popup": "popup.html",
-    "default_title": "Distraction Blocker"
+    "default_title": "Focusly"
   },
   "permissions": ["webRequest", "webRequestBlocking",
                   "*://*/*", "webNavigation", "tabs", "activeTab", "history",

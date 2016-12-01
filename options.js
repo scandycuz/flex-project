@@ -14,7 +14,7 @@ function save_options() {
   }, function() {
     // Update status to let user know options were saved.
     var status = document.getElementById('status');
-    status.textContent = 'Options saved.';
+    status.textContent = 'Options saved';
     setTimeout(function() {
       status.textContent = '';
     }, 1000);
@@ -22,9 +22,21 @@ function save_options() {
 }
 
 function removeBlockedSite(e) {
-  let targetLi = e.target.parentNode;
-  let parentUl = targetLi.parentNode;
-  parentUl.removeChild(targetLi);
+
+  chrome.storage.sync.get({
+    timerEnd: 0
+  }, function(items) {
+    let endingTimestampSeconds = items.timerEnd;
+    let currentTimestampSeconds = Date.now() / 1000;
+
+    if (endingTimestampSeconds - currentTimestampSeconds > 0) {
+      alert('End timer before removing sites');
+    } else {
+      let targetLi = e.target.parentNode;
+      let parentUl = targetLi.parentNode;
+      parentUl.removeChild(targetLi);
+    }
+  });
 }
 
 function addBlockedSite(e) {
@@ -36,9 +48,11 @@ function addBlockedSite(e) {
   let node = document.createElement("LI");
   let icon = "<i class='fa fa-minus-square remove-site-icon' aria-hidden='true'></i>";
   node.innerHTML = `${formattedUrl} ${icon}`;
-  blockedList.appendChild(node);
-  blockedList.lastChild.addEventListener('click', removeBlockedSite);
-  inputField.value = "";
+  if (formattedUrl !== "") {
+    blockedList.appendChild(node);
+    blockedList.lastChild.addEventListener('click', removeBlockedSite);
+    inputField.value = "";
+  }
 }
 
 function restore_options() {
@@ -46,7 +60,6 @@ function restore_options() {
     blockedSites: ["facebook.com", "twitter.com"]
   }, function(items) {
     items.blockedSites.forEach( (site) => {
-      debugger;
       let node = document.createElement("LI");
       let icon = "<i class='fa fa-minus-square remove-site-icon' aria-hidden='true'></i>";
       node.innerHTML = `${site} ${icon}`;

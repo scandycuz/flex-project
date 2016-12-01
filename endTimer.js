@@ -68,14 +68,14 @@ function inputSequence(display, sequence) {
   };
 }
 
-function cancelNavigation() {
-  chrome.storage.sync.get({
-    prevUrl: "http://www.google.com"
-  }, function(items) {
-    chrome.tabs.query({'active': true, 'lastFocusedWindow': true}, function (tabs) {
-      let currentTabId = tabs[0].id;
-      chrome.tabs.update(currentTabId, {url: items.prevUrl});
-    });
+function cancelNavigation(e) {
+  e.preventDefault();
+  let status = document.getElementById('message-container');
+  status.textContent = 'Way to hang in there!';
+  chrome.tabs.getCurrent(function(tab) {
+    setTimeout(function() {
+      chrome.tabs.remove(tab.id);
+    }, 1800);
   });
 }
 
@@ -97,13 +97,12 @@ function confirmNavigationBeta() {
   chrome.storage.sync.set({
     timerEnd: currentTimestampSeconds
   }, function() {
-    chrome.storage.sync.get({
-      navigationUrl: "redirect.html"
-    }, function(items) {
-      chrome.tabs.query({'active': true, 'lastFocusedWindow': true}, function (tabs) {
-        let currentTabId = tabs[0].id;
-        chrome.tabs.update(currentTabId, {url: items.navigationUrl});
-      });
+    chrome.tabs.getCurrent(function(tab) {
+      let status = document.getElementById('message-container');
+      status.textContent = 'Timer Ended.';
+      setTimeout(function() {
+        chrome.tabs.remove(tab.id);
+      }, 1800);
     });
   });
 }

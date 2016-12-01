@@ -1,0 +1,137 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Dialog Popup</title>
+    <link rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" />
+    <link href="https://fonts.googleapis.com/css?family=Fira+Sans:400,500|Open+Sans:300,400,600" rel="stylesheet">
+    <style>
+      body {
+        font-family: "Open Sans", "Segoe UI", "Lucida Grande", Tahoma, sans-serif;
+        font-size: 100%;
+        text-align: center;
+        padding-top: 12%;
+        background-image: url("./assets/road-nature.jpeg");
+        background-size: cover;
+        background-repeat: no-repeat;
+        color: #333;
+      }
+      h2 {
+        font-family: "Fira Sans", sans-serif;
+        font-weight: 500;
+        font-size: 2em;
+        margin-top: 0;
+      }
+      p {
+        font-size: 20px;
+        line-height: 1.45em;
+      }
+      .container {
+        max-width: 600px;
+        margin: 0 auto;
+        padding: 4em 4em 4em;
+        background: rgba(255,255,255,0.75);
+        border-radius: 3px;
+      }
+      .text-container {
+        max-width: 520px;
+        margin: 0 auto;
+      }
+      .buttons-container {
+        margin-top: 1.8em;
+        display: flex;
+        justify-content: center;
+      }
+      .nowrap {
+        white-space: nowrap;
+      }
+      button {
+        margin: 0 1em;
+        background: none;
+        font-size: 22px;
+        padding: 18px 20px;
+        border: none;
+        border: 1px solid #333;
+        border-radius: 5px;
+        color: #222;
+        /*background-color: #fff;*/
+        cursor: pointer;
+      }
+      button:hover {
+        border-color: transparent;
+      }
+      .cancel:hover {
+        background-color: #058A35;
+        color: #fff;
+      }
+      .cancel:hover i {
+        color: #fff;
+      }
+      .confirm:hover {
+        background-color: #333;
+        color: #fff;
+      }
+      .cancel:hover i {
+        color: #fff;
+      }
+      .hidden {
+        display: none;
+      }
+      #arrow-sequence i {
+        margin: 0 4px;
+        color: #333;
+      }
+      .disabled {
+        color: #777;
+        border-color: #777;
+        cursor: default;
+        outline: 0 !important;
+      }
+      .disabled:hover {
+        background-color: transparent;
+        color: #777;
+        border-color: #777;
+      }
+      #message-container {
+        font-size: 20px;
+        padding: 1.4em 0 0;
+        color: #333;
+      }
+    </style>
+    <script src="endTimer.js"></script>
+  </head>
+  <body>
+    <div class="container container-alpha">
+      <h2 class="header">Enable Distractions?</h2>
+      <div id="step-1" class="form-step">
+        <div class="text-container">
+          <p>
+            Are you sure you want to end the timer early?
+          </p>
+        </div>
+        <div class="form-step buttons-container">
+          <button id="cancel-alpha" class="cancel" type="button" name="cancel">Nope, just <span class="nowrap">kidding.&nbsp;
+            <i class="fa fa-times" aria-hidden="true"></i></span></button>
+          <button id="confirm-alpha" class="confirm" type="button" name="confirm">Can't... <span class="nowrap">resist...&nbsp;
+            <i class="fa fa-arrow-right" aria-hidden="true"></i></span></button>
+        </div>
+      </div>
+
+      <div id="step-2" class="form-step hidden">
+        <div class="text-container">
+          <p>
+            That's cool, just enter the following sequence:
+          </p>
+          <div id="arrow-sequence"></div>
+        </div>
+        <div class="buttons-container">
+          <button id="cancel-beta" class="cancel" type="button" name="cancel">Nevermind, I'm getting a second <span class="nowrap">wind.&nbsp;
+            <i class="fa fa-times" aria-hidden="true"></i></span></button>
+          <button id="confirm-beta" class="confirm disabled" type="button" name="confirm">Bring on the <span class="nowrap">distractions!&nbsp;
+            <i class="fa fa-arrow-right" aria-hidden="true"></i></span></button>
+        </div>
+      </div>
+      <div id="message-container"></div>
+    </div>
+  </body>
+</html>
