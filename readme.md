@@ -22,11 +22,11 @@ Focusly allows users to end the timer early and access distracting sites before 
 
 ## Screenshots
 
-Options page to add and remove blocked hosts, with the pop-up dropdown in upper right corner:
+Options page to add and remove blocked hosts, and the extension pop-up in upper right corner:
 
 ![screenshot](assets/options-and-popup.jpg)
 
-Interactive element to end the timer early:
+Interactive input sequence to end the timer early:
 
 ![screenshot](assets/end-timer-early.jpg)
 
@@ -34,9 +34,9 @@ Interactive element to end the timer early:
 
 The extension is written using HTML, CSS, and javascript, and utilizes the Chrome Extension API.
 
-The application listens for HTTP requests made by the user and compares them to the user's custom list of blocked sites. If the timer has been activated, and the host of the HTTP request matches a site on the list, the request is blocked.
+The application listens for HTTP requests made by the user and compares them to the user's list of blocked sites. If the timer is active and the host of the HTTP request matches a site on the list, the request is blocked.
 
-If the user desires to end the timer early, they are able to do so, however, first they must enter a series of arrow inputs. The input sequence is randomized and dynamically rendered to the page each time.
+The user can choose to end the timer early, however, they must first enter a series of arrow inputs. The input sequence is randomized and dynamically rendered each time.
 
 ### Future Implementation
 
