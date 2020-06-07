@@ -139,15 +139,3 @@ document.addEventListener('DOMContentLoaded', function() {
     }
   });
 });
-
-
-
-
-
-
-
-
-
-
-
-//
